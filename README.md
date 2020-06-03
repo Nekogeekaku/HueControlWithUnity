@@ -8,7 +8,8 @@
  For now you can
  * locate your bridge in a local network
  * create a user
- * control lights
+ * control lights (On, Off, Fade in)
+ * set light colors
 
  A sample scene is provided to use the different functions
 
