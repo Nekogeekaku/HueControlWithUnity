@@ -13,17 +13,15 @@ public class GlobalManager : MonoBehaviour
     TMPro.TextMeshProUGUI logText;
     [SerializeField]
     TMPro.TMP_InputField lightNumberImput;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    Slider rSlider;
+    [SerializeField]
+    Slider gSlider;
+    [SerializeField]
+    Slider bSlider;
+
+
     public void locateBridge()
     {
         FindObjectOfType<BridgeLocator>().LocateBridge(OnBridgeLocated);
@@ -126,14 +124,18 @@ public class GlobalManager : MonoBehaviour
 
     }
 
-    public void GetLigts()
+    public void SetColor()
     {
 
-       
+        float brightness = 0;
+        float hue = 0;
+        float saturation = 0;
+        Utilities.ConvertFromRGBTOPhilipsColors(rSlider.value, gSlider.value, bSlider.value, out brightness, out hue, out saturation);
+        string data = "{\"on\":true, \"transitiontime\": 1,\"bri\":" + (int)brightness + ",\"hue\":" + (int)hue + ",\"sat\":" + (int)saturation + "}";
+        int lightNumber = 0;
+        int.TryParse(lightNumberImput.text, out lightNumber);
+        FindObjectOfType<HueChangeLightState>().Request(lightNumber, data, OnChangedState);
     }
-
-
-
 
 
 
