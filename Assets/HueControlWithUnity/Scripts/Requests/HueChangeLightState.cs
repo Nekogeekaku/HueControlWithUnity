@@ -26,7 +26,7 @@ public class HueChangeLightState : MonoBehaviour
         {
             yield return www.SendWebRequest();
 
-            if (www.isNetworkError || www.isHttpError)
+            if (www.result == UnityWebRequest.Result.ConnectionError|| www.result == UnityWebRequest.Result.ProtocolError)
             {
                 Debug.Log(www.error);
             }

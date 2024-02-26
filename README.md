@@ -17,6 +17,9 @@
 
  Warning : locate will freeze your ui as currently the code has a thread sleep. I plan on changing that as soon as possible.
 
+Changes in 26 february 2024
+- last opened on 2022.3.20F1 LTS 
+- changed some obsolete code on the unitywebrequest
 
 Changes in 11 February 2024
 I tested with 2022.3.19F1 LTS as requested and it works.
