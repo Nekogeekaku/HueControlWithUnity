@@ -21,6 +21,27 @@ public class GlobalManager : MonoBehaviour
     [SerializeField]
     Slider bSlider;
 
+    [SerializeField]
+    GameObject ColorPickerPanel;
+
+
+    private void Start()
+    {
+        ColorPickerPanel.SetActive(false);
+    }
+
+
+    public void DisplayColorPicker()
+    {
+        ColorPickerPanel.SetActive(true);
+
+    }
+
+    public void HideColorPicker()
+    {
+        ColorPickerPanel.SetActive(false);
+
+    }
 
     public void locateBridge()
     {
